@@ -1,119 +1,40 @@
-# 🤖 AutoML Prediction & Machine Learning Model Comparison System
+# 🤖 AutoML Model Comparison System
 
-An end-to-end **AutoML (Automated Machine Learning)** web application built using **Python, Streamlit, and Scikit-learn** that allows users to upload any CSV dataset, automatically preprocess the data, compare multiple Machine Learning models, evaluate their performance, and make predictions using the best-performing model.
-
----
-
-# 📌 Table of Contents
-
-- Overview
-- Features
-- Technologies Used
-- Project Structure
-- Workflow
-- Installation
-- Usage
-- Machine Learning Models
-- Evaluation Metrics
-- Data Preprocessing
-- Visualization
-- Prediction Module
-- Future Improvements
-- Screenshots
-- Author
+An intelligent Machine Learning application built with **Python** and **Streamlit** that automatically detects the type of machine learning problem, preprocesses data, trains multiple models, performs hyperparameter tuning, compares their performance, and selects the best model automatically.
 
 ---
 
-# 📖 Overview
+# 📌 Features
 
-Machine Learning projects usually require several repetitive steps such as
+✅ Upload your own dataset (CSV)
 
-- Data Cleaning
-- Feature Engineering
-- Handling Missing Values
-- Encoding Categorical Variables
-- Scaling Features
-- Model Selection
-- Model Evaluation
+✅ Automatic data preprocessing
 
-This project automates the complete workflow.
+- Missing value handling
+- Categorical encoding
+- Feature scaling
+- Train/Test split
 
-The user simply uploads a CSV dataset, selects the target column, and the system automatically builds multiple ML models, compares them, selects the best one, and allows real-time predictions.
+✅ Automatic problem type detection
 
----
+- Classification
+- Regression
 
-# ✨ Features
+(or manually choose the problem type)
 
-## Dataset Analysis
-
-- Upload any CSV dataset
-- Dataset Preview
-- Number of Rows
-- Number of Columns
-- Missing Values
-- Duplicate Rows
-- Column Information
-- Automatic Data Type Detection
-
----
-
-## Automatic Data Preprocessing
-
-The application automatically performs
-
-- Duplicate Removal
-- Missing Value Handling
-- Date Feature Extraction
-- Text Feature Extraction using TF-IDF
-- Label Encoding
-- Feature Scaling
-- Removal of ID, URL, Email and Address Columns
-
----
-
-## Automatic Problem Detection
-
-Supports
-
-✅ Classification
-
-Examples
-
-- Loan Prediction
-- Job Hiring
-- Disease Prediction
-- Customer Churn
-
----
-
-✅ Regression
-
-Examples
-
-- House Price Prediction
-- Salary Prediction
-- Product Cost Prediction
-
----
-
-## Multiple Machine Learning Models
-
-The application trains multiple models and compares their performance automatically.
+✅ Trains multiple Machine Learning algorithms automatically
 
 ### Classification Models
 
 - Logistic Regression
-- Decision Tree Classifier
-- Random Forest Classifier
-- Gradient Boosting Classifier
-- Extra Trees Classifier
-- AdaBoost Classifier
-- Support Vector Machine
-- K-Nearest Neighbors
-- Gaussian Naive Bayes
-- Multinomial Naive Bayes (Sparse Data)
-
----
+- Decision Tree
+- Random Forest
+- Gradient Boosting
+- Extra Trees
+- AdaBoost
+- Support Vector Machine (SVM)
+- K-Nearest Neighbors (KNN)
+- Naive Bayes
 
 ### Regression Models
 
@@ -124,295 +45,22 @@ The application trains multiple models and compares their performance automatica
 - Extra Trees Regressor
 - AdaBoost Regressor
 - Support Vector Regressor
-- K-Nearest Neighbor Regressor
+- KNN Regressor
 
 ---
 
-## Automatic Best Model Selection
+# 🚀 Hyperparameter Tuning
 
-After training every model, the application automatically selects the model with the highest performance score.
+The project automatically performs hyperparameter optimization using
 
----
+- GridSearchCV
+- RandomizedSearchCV
 
-## Model Evaluation
-
-### Classification
-
-Displays
-
-- Accuracy
-- Precision
-- Recall
-- F1 Score
-- Confusion Matrix
-- Classification Report
-- ROC Curve (Binary Classification)
+to improve model performance.
 
 ---
 
-### Regression
-
-Displays
-
-- Mean Absolute Error (MAE)
-- Mean Squared Error (MSE)
-- Root Mean Squared Error (RMSE)
-- R² Score
-
----
-
-## Visualization
-
-Automatic visualizations include
-
-- Missing Value Heatmap
-- Correlation Heatmap
-- Target Distribution
-- Boxplots
-- Pairplots
-- Distribution Plots
-- Feature Importance
-- Model Comparison Graph
-
----
-
-## Prediction
-
-After training
-
-- User enters new feature values
-- Data is automatically encoded
-- Data is scaled
-- Best model predicts output
-
----
-
-# 🛠 Technologies Used
-
-## Programming Language
-
-- Python 3.12+
-
----
-
-## Frontend
-
-- Streamlit
-
----
-
-## Data Processing
-
-- Pandas
-- NumPy
-
----
-
-## Machine Learning
-
-- Scikit-learn
-
----
-
-## Visualization
-
-- Matplotlib
-- Seaborn
-
----
-
-## Text Processing
-
-- TF-IDF Vectorizer
-
----
-
-## Utilities
-
-- SciPy
-
----
-
-# 📂 Project Structure
-
-```
-AutoML-Model-Comparison-System/
-
-│
-
-├── app.py
-
-├── preprocessing.py
-
-├── models.py
-
-├── evaluation.py
-
-├── prediction.py
-
-├── visualization.py
-
-├── requirements.txt
-
-├── README.md
-
-├── datasets/
-
-│      sample.csv
-
-│
-
-└── assets/
-```
-
----
-
-# ⚙ Workflow
-
-```
-User Uploads CSV
-        │
-        ▼
-Dataset Analysis
-        │
-        ▼
-Automatic Preprocessing
-        │
-        ▼
-Target Selection
-        │
-        ▼
-Problem Type Detection
-        │
-        ▼
-Model Training
-        │
-        ▼
-Model Comparison
-        │
-        ▼
-Best Model Selection
-        │
-        ▼
-Evaluation
-        │
-        ▼
-Prediction
-```
-
----
-
-# 📊 Automatic Preprocessing
-
-## Duplicate Removal
-
-```python
-df.drop_duplicates()
-```
-
----
-
-## Missing Value Handling
-
-Numeric Columns
-
-```
-Mean Imputation
-```
-
-Categorical Columns
-
-```
-Most Frequent Value
-```
-
----
-
-## Date Processing
-
-Example
-
-```
-2026-07-23
-
-↓
-
-Year = 2026
-
-Month = 7
-
-Day = 23
-```
-
----
-
-## Text Processing
-
-Long text columns are converted into
-
-```
-TF-IDF Features
-```
-
----
-
-## Label Encoding
-
-Example
-
-```
-Male
-
-Female
-
-↓
-
-0
-
-1
-```
-
----
-
-## Feature Scaling
-
-StandardScaler is used before model training.
-
----
-
-# 📊 Machine Learning Workflow
-
-```
-Dataset
-
-↓
-
-Preprocessing
-
-↓
-
-Train Test Split
-
-↓
-
-Feature Scaling
-
-↓
-
-Model Training
-
-↓
-
-Evaluation
-
-↓
-
-Prediction
-```
-
----
-
-# 📈 Evaluation Metrics
+# 📊 Performance Metrics
 
 ## Classification
 
@@ -420,11 +68,7 @@ Prediction
 - Precision
 - Recall
 - F1 Score
-- Confusion Matrix
-- Classification Report
-- ROC Curve
-
----
+- Cross Validation Score
 
 ## Regression
 
@@ -432,94 +76,142 @@ Prediction
 - MSE
 - RMSE
 - R² Score
+- Cross Validation Score
 
 ---
 
-# 📉 Visualization Modules
+# 📈 Visualizations
 
-The application automatically generates
+The application provides several visualizations including:
 
-- Dataset Missing Value Graph
+- Model Performance Comparison
+- Accuracy Comparison
+- Precision Comparison
+- Recall Comparison
+- F1 Score Comparison
+- Regression Metrics Comparison
+- Feature Importance (Tree-based models)
 - Correlation Heatmap
-- Target Distribution
-- Pairplot
-- Distribution Plot
-- Feature Importance Plot
-- Model Comparison Plot
-- Confusion Matrix
-- ROC Curve
+- Dataset Overview
 
 ---
 
-# 🔮 Prediction Module
+# 🏆 Best Model Selection
 
-After selecting the best model
+After training all models, the application automatically
 
-Users enter
+- Compares all models
+- Selects the best performing model
+- Displays its evaluation metrics
+- Saves the trained model
 
-- Numeric Values
-- Categorical Values
-- Date Values
+---
 
-The application automatically
+# 💾 Model Saving
 
-- Encodes
-- Scales
-- Predicts
+The project automatically saves
 
-and displays
+- Best trained model
+- Scaler
+- Label Encoders
+- Target Encoder
+
+using **Joblib**
+
+Example:
 
 ```
-Prediction
-
-Confidence (Classification)
-
-Input Summary
+saved_models/
+│
+├── best_model.pkl
+├── scaler.pkl
+├── label_encoders.pkl
+└── target_encoder.pkl
 ```
 
 ---
 
-# 🚀 Installation
+# 📂 Project Structure
 
-Clone Repository
+```
+AutoML-Model-Comparison-System/
+│
+├── app.py
+├── preprocessing.py
+├── models.py
+├── prediction.py
+├── evaluation.py
+├── visualization.py
+├── train.py
+├── utils.py
+├── requirements.txt
+├── README.md
+├── .gitignore
+│
+├── saved_models/
+│
+└── assets/
+```
+
+---
+
+# ⚙️ Technologies Used
+
+- Python
+- Streamlit
+- Pandas
+- NumPy
+- Scikit-Learn
+- Matplotlib
+- Seaborn
+- Joblib
+- SciPy
+
+---
+
+# 🖥️ Installation
+
+Clone the repository
 
 ```bash
-git clone https://github.com/yourusername/AutoML-Model-Comparison-System.git
+git clone https://github.com/YOUR_USERNAME/AutoML-Model-Comparison-System.git
 ```
 
-Move into project
+Move into the project
 
 ```bash
 cd AutoML-Model-Comparison-System
 ```
 
-Create Virtual Environment
+Create virtual environment
 
 ```bash
 python -m venv venv
 ```
 
-Activate
+Activate environment
 
-Windows
+### Windows
 
 ```bash
 venv\Scripts\activate
 ```
 
-Linux / Mac
+### Linux/Mac
 
 ```bash
 source venv/bin/activate
 ```
 
-Install Dependencies
+Install dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Run Application
+---
+
+# ▶️ Run the Application
 
 ```bash
 streamlit run app.py
@@ -527,66 +219,122 @@ streamlit run app.py
 
 ---
 
-# 📌 Example Datasets
+# 📝 How to Use
 
-Works with
+### Step 1
 
-- Employee Salary Dataset
-- House Price Dataset
-- Loan Prediction Dataset
-- Student Performance Dataset
-- Customer Churn Dataset
-- Job Hiring Dataset
-- Product Dataset
-- Sales Dataset
+Upload a CSV dataset.
 
 ---
 
-# 🌟 Advantages
+### Step 2
 
-- Fully Automatic
-- Beginner Friendly
-- Supports Classification & Regression
-- Automatic Preprocessing
-- Multiple Model Comparison
-- Interactive Dashboard
-- Real-Time Prediction
-- Feature Importance Visualization
+Select the target column.
 
 ---
 
-# 🚧 Future Improvements
+### Step 3
 
-- Hyperparameter Tuning
+Choose
+
+- Auto Detect
+- Classification
+- Regression
+
+---
+
+### Step 4
+
+Click **Train Models**
+
+---
+
+### Step 5
+
+The application will
+
+- Preprocess the data
+- Encode categorical columns
+- Scale numerical features
+- Train all supported ML models
+- Perform Hyperparameter Tuning
+- Compare results
+- Select the best model
+- Save the trained model
+
+---
+
+# 📊 Sample Output
+
+The application displays
+
+- Model Comparison Table
+- Best Model
 - Cross Validation Score
-- Model Download
+- Hyperparameters
+- Feature Importance
+- Prediction Results
+
+---
+
+# 📌 Future Improvements
+
+- Deep Learning Models
 - XGBoost
-- CatBoost
 - LightGBM
-- Deep Learning Support
+- CatBoost
 - SHAP Explainability
-- LIME Explainability
-- PDF Report Generation
-- Cloud Deployment
-- Database Integration
+- Automated Feature Engineering
+- Model Deployment
+- Export trained models
+- Download prediction reports
+- MLflow Integration
+- Docker Support
 
 ---
 
 # 📷 Screenshots
 
-Add screenshots here
+You can add screenshots here.
+
+Example
 
 ```
-Dataset Preview
-
-Model Leaderboard
-
-Confusion Matrix
-
-Prediction Screen
-
-Feature Importance
+screenshots/
+│
+├── homepage.png
+├── upload.png
+├── results.png
+├── feature_importance.png
 ```
+
+---
+
+# 🤝 Contributing
+
+Contributions are welcome.
+
+1. Fork the repository
+
+2. Create a new branch
+
+```
+git checkout -b feature-name
+```
+
+3. Commit your changes
+
+```
+git commit -m "Added new feature"
+```
+
+4. Push
+
+```
+git push origin feature-name
+```
+
+5. Open a Pull Request
 
 ---
 
@@ -594,19 +342,14 @@ Feature Importance
 
 **Mohammed Rishal**
 
-- BCA Graduate
-- Diploma in Data Science
-- Python Developer
-- Machine Learning Enthusiast
+Data Science Trainee
+
+GitHub: https://github.com/MohammedRishal6257
+
+LinkedIn: www.linkedin.com/in/mohammed-rishal-34836131a
 
 ---
 
-# 📄 License
+# ⭐ Support
 
-This project is developed for educational and research purposes.
-
----
-
-# ⭐ If you like this project
-
-Please consider giving it a ⭐ on GitHub.
+If you found this project useful, please consider giving it a ⭐ on GitHub.
